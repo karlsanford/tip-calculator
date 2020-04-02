@@ -9,9 +9,9 @@
 // ]
 
 function readShiftReportInput () {
-    let testAreaData = document.getElementById('shiftReportInput').value;
+    let textAreaData = document.getElementById('shiftReportInput').value;
     let hasHeaders = document.getElementById('hasHeaders').checked;
-    dataArr = csvToArray(testAreaData);
+    dataArr = csvToArray(textAreaData);
     console.log(dataArr)
     dataObj = objectFromNestedArray(dataArr,hasHeaders)
     console.log(dataObj)
@@ -23,7 +23,7 @@ function objectFromNestedArray (arr, headers) {
     //if headers undefined or false
     if(typeof headers === undefined || headers === false) headers = arr.map((item,index) => 'Column' + index)
     //if headers has true
-    if(headers === true) headers = arr.shift()
+    if(headers === true) headers = arr.filter((item, index) => { return index > 0});
     //map nested array and reduce inner arrays to object with key:value pair based on headers
     newOBJ = arr.map((line) => {
         return line.reduce((acc,item,index) => {
