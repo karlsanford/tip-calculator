@@ -31,8 +31,12 @@ function objectFromNestedArray (arr, headers) {
             return acc;
         },{})
     })
-        
     return newOBJ;
+}
+
+function buildTable (tableArr) {
+    htmlStr = ""
+    
 }
 ///\s+/g
 // shiftReport = fs.readFileSync(filePath, {encoding: 'utf-8'})
